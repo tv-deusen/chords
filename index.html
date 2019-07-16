@@ -6,8 +6,9 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <!--  JQuery  -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/anim.css" rel="stylesheet">
     </head>
     
     <body>
@@ -18,12 +19,26 @@
         <main>
             <section id="chord_cards" class="container">
                 
-                <div id="sevenths" class="card">
+                <div id="triads" class="card">
                     <div class="card-content">
-                        <span class="card-title activator">6ths <i class="material-icons right">more_vert</i></span>
+                        <p class="card-title noselect">Triads</p>
+                        <i class="activator material-icons right">add</i>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title">6ths <i class="material-icons right">close</i></span>
+                        <form id="sevenths_form" action="#">
+                            <input type="checkbox" name="major">Major<br>
+                            <input type="checkbox" name="minor">Minor<br>
+                            <input type="checkbox" name="six_nine">69<br>
+                            <input type="checkbox" name="minor_six_nine">m69<br>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id="sixths" class="card">
+                    <div class="card-content">
+                        <span class="card-title noselect">6ths <i class="activator material-icons right">add</i></span>
+                    </div>
+                    <div class="card-reveal">
                         <form id="sevenths_form" action="#">
                             <input type="checkbox" name="major">Major<br>
                             <input type="checkbox" name="minor">Minor<br>
@@ -35,10 +50,9 @@
                 
                 <div id="sevenths" class="card">
                     <div class="card-content">
-                        <span class="card-title activator">7ths <i class="material-icons right">more_vert</i></span>
+                        <span class="card-title noselect">7ths <i class="activator material-icons right">add</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title">7ths <i class="material-icons right">close</i></span>
                         <form id="sevenths_form" action="#">
                             <input type="checkbox" name="major">Major<br>
                             <input type="checkbox" name="minor">Minor<br>
@@ -50,10 +64,9 @@
                 
                 <div id="ninths" class="card">
                     <div class="card-content">
-                        <span class="card-title activator">9ths <i class="material-icons right">more_vert</i></span>
+                        <span class="card-title noselect">9ths <i class="activator material-icons right">add</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title">9ths <i class="material-icons right">close</i></span>
                         <form id="ninths_form" action="#">
                             <input type="checkbox" name="major">Major<br>
                             <input type="checkbox" name="minor">Minor<br>
@@ -65,10 +78,9 @@
                 
                 <div id="elevenths" class="card">
                     <div class="card-content">
-                        <span class="card-title activator">11ths <i class="material-icons right">more_vert</i></span>
+                        <span class="card-title noselect">11ths <i class="activator material-icons right">add</i></span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title">11ths <i class="material-icons right">close</i></span>
                         <form id="elevenths_form" action="#">
                             <input type="checkbox" name="dom">Dominant<br>
                             <input type="checkbox" name="minor">Minor<br>
@@ -80,8 +92,4 @@
         
         <script src="js/card.js"></script>
     </body>
-    
-
-            
-
 </html>

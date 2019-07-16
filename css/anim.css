@@ -1,0 +1,14 @@
+.card-reveal {
+    animation-duration: 0.5s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-right: 0%;
+    }
+    to {
+        margin-right: 100%;
+        display: inline-block;
+    }
+}
