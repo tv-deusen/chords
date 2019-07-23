@@ -1,18 +1,19 @@
 /* jslint indent: 4 */
 
-
-
 function setupRevealers() {
     var revealers = document.getElementsByClassName("revealer");
     for (let rev of revealers) {
         let add = rev.children.item(0);
         let remove = rev.children.item(1);
 
+        let reveal = rev.parentElement.parentElement.querySelector(".card-reveal");
+
         add.style.zIndex = "2";
         add.style.opacity = "1";
         remove.style.zIndex = "1";
         remove.style.opacity = "0";
 
+        // Should be able to find something more elegant than this...
         rev.addEventListener("click", function (event) {
             if (add.style.zIndex == "1") {
                 add.style.zIndex = "0";
@@ -36,22 +37,16 @@ function setupRevealers() {
                 remove.style.opacity = "1";
             }
 
-            
-            console.log("adds zIndex is now: %s", add.style.zIndex);
-            console.log("adds opacity is now: %s", add.style.opacity);
-            console.log("removes zIndex is now: %s", remove.style.zIndex);
-            console.log("removes opacity is now: %s", remove.style.opacity);
+            if (reveal.style.right = "100%") {
+                reveal.style.right = "10%";
+            } else {
+                reveal.style.right = "100%";
+            }
         });
     }
 }
 
-
 window.addEventListener("DOMContentLoaded", event => {
     setupRevealers();
-    var cards = document.querySelectorAll(".card");
-    for (let card of cards) {
-        let cardReveal = card.querySelector(".card-reveal");
-
-    }
-
+    setupReveals();
 });

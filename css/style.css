@@ -63,16 +63,15 @@ header {
 }
 
 .card-reveal {
-    padding: 1em;
-    position: absolute;
     background-color: white;
-    width: 100%;
     overflow-y: auto;
-    left: 0;
-    top: 100%;
+    width: 80%;
     height: 100%;
-    z-index: 3;
-    display: none;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    z-index: 1;
+    transition: right .5s;
 }
 
 .card-reveal .card-title {
