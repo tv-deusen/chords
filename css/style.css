@@ -14,6 +14,10 @@ header {
     width: 90%;
 }
 
+form {
+    vertical-align: middle;
+}
+
 .right {
   float: right !important;
 }
@@ -50,6 +54,7 @@ header {
     transition: box-shadow .25s, -webkit-box-shadow .25s;
     border-radius: 2px;
     overflow: hidden;
+    flex-basis: 13em;
 }
 
 .card .card-title {
@@ -62,6 +67,7 @@ header {
 .card-content {
     padding: 2em;
     border-radius: 0 0 0.2em 0.2em;
+    text-align: center;
 }
 
 .card-reveal {
@@ -90,7 +96,8 @@ header {
 
 .revealer {
     position: absolute;
-    top: 10%;
+    top: 5%;
+    right: 15%;
     z-index: 3;
 }
 
@@ -102,4 +109,10 @@ header {
             transition: all .4s ease;
     position: absolute;
     top: 0;
+}
+
+#parameters {
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
 }

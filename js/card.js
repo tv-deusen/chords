@@ -1,6 +1,6 @@
 /* jslint indent: 4 */
 
-function setupRevealers() {
+function setup() {
     var revealers = document.getElementsByClassName("revealer");
     for (let rev of revealers) {
         let add = rev.children.item(0);
@@ -44,6 +44,5 @@ function setupRevealers() {
 }
 
 window.addEventListener("DOMContentLoaded", event => {
-    setupRevealers();
-    setupReveals();
+    setup();
 });
