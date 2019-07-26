@@ -55,6 +55,8 @@ header {
 .card .card-title {
     font-size: 4em;
     font-weight: 300;
+    display: inline-block;
+    left: 0;
 }
 
 .card-content {
@@ -72,12 +74,6 @@ header {
     top: 0;
     z-index: 1;
     transition: right .5s;
-}
-
-.card-reveal .card-title {
-    display: inline-block;
-    position: absolute;
-    left: 0;
 }
 
 .card-content p, .card-content .revealer {
@@ -99,12 +95,3 @@ header {
     position: absolute;
     top: 0;
 }
-
- /* This is needed for some mobile phones to display the Google Icon font properly  */
-.material-icons {
-  text-rendering: optimizeLegibility;
-  -webkit-font-feature-settings: 'liga';
-     -moz-font-feature-settings: 'liga';
-          font-feature-settings: 'liga';
-}
-
