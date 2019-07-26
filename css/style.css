@@ -70,10 +70,17 @@ header {
     width: 80%;
     height: 100%;
     position: absolute;
-    right: 100%;
-    top: 0;
     z-index: 1;
     transition: right .5s;
+    top: 0;
+}
+
+.card-reveal-hidden {
+    right: 100%;
+}
+
+.card-reveal-shown {
+    right: 10%;
 }
 
 .card-content p, .card-content .revealer {
@@ -84,6 +91,7 @@ header {
 .revealer {
     position: absolute;
     top: 10%;
+    z-index: 3;
 }
 
 .revealer > img {
