@@ -1,54 +1,52 @@
-/*jslint indent: 4 */
-/*global $ document */
+/* jslint indent: 4 */
 
-//(function($, anim) {
-//  $(document).on('click', '.card', function(e) {
-//    if ($(this).children('.card-reveal').length) {
-//      var $card = $(e.target).closest('.card');
-//      if ($card.data('initialOverflow') === undefined) {
-//        $card.data(
-//          'initialOverflow',
-//          $card.css('overflow') === undefined ? '' : $card.css('overflow')
-//        );
-//      }
-//      let $cardReveal = $(this).find('.card-reveal');
-//      if (
-//        $(e.target).is($('.card-reveal .card-title')) ||
-//        $(e.target).is($('.card-reveal .card-title i'))
-//      ) {
-//        // Make Reveal animate down and display none
-//        anim({
-//          targets: $cardReveal[0],
-//          translateY: 0,
-//          duration: 225,
-//          easing: 'easeInOutQuad',
-//          complete: function(anim) {
-//            let el = anim.animatables[0].target;
-//            $(el).css({ display: 'none' });
-//            $card.css('overflow', $card.data('initialOverflow'));
-//          }
-//        });
-//      } else if ($(e.target).is($('.card .activator')) || $(e.target).is($('.card .activator i'))) {
-//        $card.css('overflow', 'hidden');
-//        $cardReveal.css({ display: 'block' });
-//        anim({
-//          targets: $cardReveal[0],
-//          translateY: '-100%',
-//          duration: 300,
-//          easing: 'easeInOutQuad'
-//        });
-//      }
-//    }
-//  });
-//})(cash, M.anime);
+function setupRevealers() {
+    var revealers = document.getElementsByClassName("revealer");
+    for (let rev of revealers) {
+        let add = rev.children.item(0);
+        let remove = rev.children.item(1);
 
+        let reveal = rev.parentElement.parentElement.querySelector(".card-reveal");
 
+        add.style.zIndex = "2";
+        add.style.opacity = "1";
+        remove.style.zIndex = "1";
+        remove.style.opacity = "0";
 
-$(document).ready(function() {
-    $(".card").each(function() {
-       $(this).click(function() {
-           var $cardReveal = $(this).find('.card-reveal');
-           $cardReveal.slideToggle();
-       });
-    });
+        // Should be able to find something more elegant than this...
+        rev.addEventListener("click", function (event) {
+            if (add.style.zIndex == "1") {
+                add.style.zIndex = "0";
+            } else {
+                add .style.zIndex = "1";
+            }
+            if (add.style.opacity == "1") {
+                add.style.opacity = "0";
+            } else {
+                add.style.opacity = "1";
+            }
+
+            if (remove.style.zIndex == "1") {
+                remove.style.zIndex = "0";
+            } else {
+                remove .style.zIndex = "1";
+            }
+            if (remove.style.opacity == "1") {
+                remove.style.opacity = "0";
+            } else {
+                remove.style.opacity = "1";
+            }
+
+            if (reveal.style.right = "100%") {
+                reveal.style.right = "10%";
+            } else {
+                reveal.style.right = "100%";
+            }
+        });
+    }
+}
+
+window.addEventListener("DOMContentLoaded", event => {
+    setupRevealers();
+    setupReveals();
 });
