@@ -18,7 +18,7 @@
         <main>
             <section id="chord_cards" class="container">
                 
-                <div id="triads" class="card">
+                <div id="triads" class="card shadowed">
                     <div class="card-content">
                         <p class="card-title noselect">Triads</p>
                         <div class="revealer">
@@ -28,16 +28,16 @@
                     </div>
                     <div class="card-reveal">
                         <form id="triads_form" action="#">
-                            <input type="checkbox" name="major">Major<br>
-                            <input type="checkbox" name="minor">Minor<br>
-                            <input type="checkbox" name="add_nine">Add 9<br>
-                            <input type="checkbox" name="six_nine">69<br>
-                            <input type="checkbox" name="minor_six_nine">m69<br>
+                            <input type="checkbox" name="M">Major<br>
+                            <input type="checkbox" name="m">Minor<br>
+                            <input type="checkbox" name="add9">Add 9<br>
+                            <input type="checkbox" name="69">69<br>
+                            <input type="checkbox" name="m69">m69<br>
                         </form>
                     </div>
                 </div>
 
-                <div id="sevenths" class="card">
+                <div id="sevenths" class="card shadowed">
                     <div class="card-content">
                         <p class="card-title noselect">7ths</p>
                         <div class="revealer">
@@ -46,16 +46,16 @@
                         </div>
                     </div>
                     <div class="card-reveal">
-                        <form id="triads_form" action="#">
-                            <input type="checkbox" name="major">Major<br>
-                            <input type="checkbox" name="minor">Minor<br>
-                            <input type="checkbox" name="dom">Dominant<br>
+                        <form id="sevenths_form" action="#">
+                            <input type="checkbox" name="M">Major<br>
+                            <input type="checkbox" name="m">Minor<br>
+                            <input type="checkbox" name="7">Dominant<br>
                             <input type="checkbox" name="dim">Diminished<br>
                         </form>
                     </div>
                 </div>
 
-                <div id="ninths" class="card">
+                <div id="ninths" class="card shadowed">
                     <div class="card-content">
                         <p class="card-title noselect">9ths</p>
                         <div class="revealer">
@@ -64,15 +64,15 @@
                         </div>
                     </div>
                     <div class="card-reveal">
-                        <form id="triads_form" action="#">
-                            <input type="checkbox" name="major">Major<br>
-                            <input type="checkbox" name="minor">Minor<br>
-                            <input type="checkbox" name="dom">Dominant<br>
+                        <form id="ninths_form" action="#">
+                            <input type="checkbox" name="M">Major<br>
+                            <input type="checkbox" name="m">Minor<br>
+                            <input type="checkbox" name="9">Dominant<br>
                         </form>
                     </div>
                 </div>
 
-                <div id="elevenths" class="card">
+                <div id="elevenths" class="card shadowed">
                     <div class="card-content">
                         <p class="card-title noselect">11ths</p>
                         <div class="revealer">
@@ -81,22 +81,31 @@
                         </div>
                     </div>
                     <div class="card-reveal">
-                        <form id="triads_form" action="#">
-                            <input type="checkbox" name="dom">Dominant<br>
-                            <input type="checkbox" name="minor">Minor<br>
+                        <form id="elevenths_form" action="#">
+                            <input type="checkbox" name="11">Dominant<br>
+                            <input type="checkbox" name="m11">Minor<br>
                         </form>
                     </div>
                 </div>
             </section>
-            
+
             <section id="parameters">
-                <form action="#">
-                    <label for="time_interval">Time Interval (s)</label>
-                    <input type="text" id="time_interval" name="time_interval">
+                <form>
+                    <input type="text" id="time_interval" name="time_interval" placeholder="Time Interval (s)">
+                    <input type="button" id="start" class="shadowed" value="Start">
                 </form>
+            </section>
+
+            <section id="quiz_display">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="chord"></p>
+                    </div>
+                </div>
             </section>
         </main>
         
         <script src="js/card.js"></script>
+        <script src="js/quiz.js"></script>
     </body>
 </html>

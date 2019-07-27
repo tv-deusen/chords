@@ -7,11 +7,13 @@ html {
 
 body, main {
     margin: 0 auto;
+    /* background-color: #73d2de; */
 }
 
 header {
     margin: 0 auto;
     width: 90%;
+    text-align: center;
 }
 
 form {
@@ -41,6 +43,7 @@ form {
     width: 90%;
     display: flex;
     overflow: hidden;
+    justify-content: center;
 }
 
 .card {
@@ -115,4 +118,43 @@ form {
     margin: 0 auto;
     align-content: center;
     text-align: center;
+    position: relative;
+}
+
+#time_interval {
+    position: absolute;
+    width: 8em;
+    top: 1.5em;
+    font-size: 1em;
+    border: none;
+    border-bottom: 1px solid black;
+    -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#start {
+    position: absolute;
+    top: 3em;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 2em;
+    width: 3em;
+}
+
+
+.shadowed {
+    /* -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); */
+    /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); */
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+}
+
+.shadowed:hover {
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
