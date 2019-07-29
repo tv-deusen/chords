@@ -6,7 +6,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <link href="css/anim.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
@@ -47,8 +46,8 @@
                     </div>
                     <div class="card-reveal">
                         <form id="sevenths_form" action="#">
-                            <input type="checkbox" name="M">Major<br>
-                            <input type="checkbox" name="m">Minor<br>
+                            <input type="checkbox" name="M7">Major<br>
+                            <input type="checkbox" name="m7">Minor<br>
                             <input type="checkbox" name="7">Dominant<br>
                             <input type="checkbox" name="dim">Diminished<br>
                         </form>
@@ -65,8 +64,8 @@
                     </div>
                     <div class="card-reveal">
                         <form id="ninths_form" action="#">
-                            <input type="checkbox" name="M">Major<br>
-                            <input type="checkbox" name="m">Minor<br>
+                            <input type="checkbox" name="M9">Major<br>
+                            <input type="checkbox" name="m9">Minor<br>
                             <input type="checkbox" name="9">Dominant<br>
                         </form>
                     </div>
@@ -91,7 +90,9 @@
 
             <section id="parameters">
                 <form>
-                    <input type="text" id="time_interval" name="time_interval" placeholder="Time Interval (s)">
+                    <input type="button" id="easy" class="shadowed" value="Easy">
+                    <input type="button" id="medium" class="shadowed" value="Medium">
+                    <input type="button" id="hard" class="shadowed" value="Hard">
                     <input type="button" id="start" class="shadowed" value="Start">
                 </form>
             </section>
@@ -102,6 +103,7 @@
                         <p class="chord"></p>
                     </div>
                 </div>
+                <button id="cancel" type="button" class="shadowed">Cancel</button>
             </section>
         </main>
         

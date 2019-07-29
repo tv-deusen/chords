@@ -46,6 +46,12 @@ form {
     justify-content: center;
 }
 
+@media only screen and (max-device-width : 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
 .card {
     position: relative;
     margin: 0.5em 0 1em 0;
@@ -132,18 +138,35 @@ form {
           box-shadow: none;
 }
 
-#start {
-    position: absolute;
-    top: 3em;
+input[type=button], button {
     font-size: 1.3em;
     border: none;
     border-radius: 2px;
     display: inline-block;
     vertical-align: middle;
     height: 2em;
-    width: 3em;
+    width: 4.1em;
 }
 
+#easy {
+
+}
+
+#start {
+    position: absolute;
+    top: 3em;
+    left: 50%;
+}
+
+#quiz_display {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .shadowed {
     /* -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2); */

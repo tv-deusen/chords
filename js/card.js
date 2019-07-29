@@ -1,5 +1,15 @@
 /* jslint indent: 4 */
 
+// It looks like some browsers cache checkbox selections
+function clearSelections() {
+    var cardSection = document.getElementById("chord_cards");
+    var cards = cardSection.getElementsByClassName("card");
+
+    for (let card of cards) {
+        card.querySelectorAll("input").forEach( q => q.checked = false);
+    }
+}
+
 function setup() {
     var revealers = document.getElementsByClassName("revealer");
     for (let rev of revealers) {
@@ -44,5 +54,6 @@ function setup() {
 }
 
 window.addEventListener("DOMContentLoaded", event => {
+    clearSelections();
     setup();
 });
