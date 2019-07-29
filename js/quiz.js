@@ -41,7 +41,7 @@ function getSelections() {
 }
 
 function getDifficulty() {
-    return 0;
+    return 5000;
 }
 
 function endQuiz() {
@@ -53,11 +53,19 @@ function endQuiz() {
     params.style.display = "block";
 }
 
-function startQuiz(disp, interval, selections) {
-    var cancel = document.getElementById("cancel");
-    cancel.addEventListener("click", endQuiz);
+function sleep(interval) {
+    return new Promise(resolve => setTimeout(resolve, interval));
+}
 
+async function startQuiz(interval, selections) {
+    var disp = document.getElementById("quiz_display");
+    var chordDisplay = document.getElementById("flashcard");
     chords = makeChords(selections);
+    for (let c of chords) {
+        await sleep(interval);
+        console.log("Displaying: %s", c);
+        chordDisplay.innerHTML = c;
+    }
 }
 
 window.addEventListener("DOMContentLoaded", event => {
@@ -75,11 +83,12 @@ window.addEventListener("DOMContentLoaded", event => {
         }
         catch (ex) {
             console.log(ex);
+            return;
         }
-        var interval = getDifficulty();
+        var difficulty = getDifficulty();
         cards.style.display = "none";
         params.style.display = "none";
         disp.style.display = "flex";
-        startQuiz(disp, interval, selections);
+        startQuiz(difficulty, selections);
     });
 });
