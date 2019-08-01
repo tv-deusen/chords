@@ -3,6 +3,8 @@ const flat = String.fromCharCode(0x266D);
 const sharp = String.fromCharCode(0x266F); 
 const roots = ["A", "A"+flat, "B", "B"+flat, "C", "D", "D"+flat, "E", "E"+flat, "F", "F"+flat, "G", "G"+flat];
 
+var CANCELLED = false;
+
 class InputException {
     constructor(msg) {
         this.msg = msg;
@@ -11,14 +13,6 @@ class InputException {
     toString() {
         return this.name + ": " + this.msg;
     }
-}
-
-function makeChords(qualities) {
-    chords = [];
-    for (let r of roots) {
-        chords = chords.concat(qualities.map(q => r + q));
-    }
-    return chords;
 }
 
 function getSelections() {
@@ -45,6 +39,7 @@ function getDifficulty() {
 }
 
 function endQuiz() {
+    CANCELLED = true;
     var disp = document.getElementById("quiz_display");
     var cards = document.getElementById("chord_cards");
     var params = document.getElementById("parameters");
@@ -53,19 +48,72 @@ function endQuiz() {
     params.style.display = "block";
 }
 
+// https://stackoverflow.com/a/12646864/8672933
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function makeChords(qualities) {
+    chords = [];
+    for (let r of roots) {
+        chords = chords.concat(qualities.map(q => r + q));
+    }
+    return shuffleArray(chords);
+}
+
+// https://stackoverflow.com/a/39914235/8672933
 function sleep(interval) {
     return new Promise(resolve => setTimeout(resolve, interval));
 }
 
+function swapCards(hide, show, chord) {
+    cardHide = document.getElementById(hide);
+    cardShow = document.getElementById(show);
+    cardHide.style.opacity = "0";
+    cardShow.style.opacity = "1";
+    cardHide.innerHTML = chord;
+}
+
+function testQuiz() {
+    
+}
+
 async function startQuiz(interval, selections) {
-    var disp = document.getElementById("quiz_display");
-    var chordDisplay = document.getElementById("flashcard");
-    chords = makeChords(selections);
+    console.log("starting quiz");
+    var a = "flashcard_a";
+    var b = "flashcard_b";
+
+    var flashA = document.getElementById(a);
+    var flashB = document.getElementById(b);
+
+    var chords = makeChords(selections);
+    console.assert(chords.length == selections.length * roots.length);
+    var i = 0;
     for (let c of chords) {
-        await sleep(interval);
-        console.log("Displaying: %s", c);
-        chordDisplay.innerHTML = c;
+        if (!CANCELLED) {
+            await sleep(interval);
+            if (CANCELLED) { break; }
+            if (i % 2) {
+                console.log("is i divisible by 2? %d", i%2);
+                flashA.innerHTML = c;
+                flashA.style.opacity = "1";
+                flashB.style.opacity = "0";                
+            } else {
+                console.log("is i divisible by 2? %d", i%2);
+                flashB.innerHTML = c;
+                flashB.style.opacity = "1";
+                flashA.style.opacity = "0";
+            }
+            i++;
+        } else {
+            break;
+        }
     }
+    console.log("ending quiz");
 }
 
 window.addEventListener("DOMContentLoaded", event => {
@@ -77,7 +125,13 @@ window.addEventListener("DOMContentLoaded", event => {
     var selections = null;
 
     disp.style.display = "none";
+    disp.style.transition = "opacity 0.5s";
+
+    document.getElementById("flashcard_a").style.transition = "opacity 0.5s";
+    document.getElementById("flashcard_b").style.transition = "opacity 0.5s";
+
     start.addEventListener("click", function() {
+        CANCELLED = false;
         try {
             selections = getSelections();
         }

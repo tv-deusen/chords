@@ -17,6 +17,7 @@ header {
 }
 
 form {
+    position: relative;
     vertical-align: middle;
 }
 
@@ -61,7 +62,7 @@ form {
     transition: -webkit-box-shadow .25s;
     transition: box-shadow .25s;
     transition: box-shadow .25s, -webkit-box-shadow .25s;
-    border-radius: 2px;
+    border-radius: .25em;
     overflow: hidden;
     flex-basis: 13em;
 }
@@ -88,6 +89,7 @@ form {
     z-index: 1;
     transition: right .5s;
     top: 0;
+    padding-top: 1em;
 }
 
 .card-reveal-hidden {
@@ -124,7 +126,10 @@ form {
     margin: 0 auto;
     align-content: center;
     text-align: center;
+    width: 20em;
+    height: 7em;
     position: relative;
+    padding-top: 1em;
 }
 
 #time_interval {
@@ -148,14 +153,67 @@ input[type=button], button {
     width: 4.1em;
 }
 
-#easy {
+/* Hide browser's default container */
+/* https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms#Checkboxes_and_radio_buttons */
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+  
+input[type=checkbox]::-ms-check {
+    display: none;
+}
+
+input[type=checkbox] {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+    /* Adjusts the position of the checkboxes on the text baseline */ 
+    vertical-align: -2px;
+    /* Set here so that Windows' High-Contrast Mode can override */
+    color: black;
+    border-radius: 2px;
+}
+
+input[type=checkbox]::before {
+    content: "✔";
+    position: absolute;
+    font-size: 1.1em;
+    right: 0;
+    top: -0.26em;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* Want to add color effects like Material Design */
+input[type=checkbox]:hover {
 
 }
 
-#start {
+input[type=checkbox]:checked::before {
+    /* Use `visibility` instead of `display` to avoid recalculating layout */
+    visibility: visible;
+    opacity: 1;
+}
+
+input[type=checkbox]:checked:hover {
+
+}
+
+.check {
     position: absolute;
-    top: 3em;
-    left: 50%;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+
+#start {
+    margin-top: 0.7em;
 }
 
 #quiz_display {
@@ -166,6 +224,31 @@ input[type=button], button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#quiz_display > .card {
+    border: none;
+    position: relative;
+    height: 20em;
+    width: 20em;
+}
+
+#quiz_display .chord {
+    font-size: 4em;
+    font-weight: 300;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#flashcard_a {
+    z-index: 1;
+}
+
+#flashcard_b {
+    z-index: 2;
 }
 
 .shadowed {
