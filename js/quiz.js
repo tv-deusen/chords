@@ -82,6 +82,8 @@ function testQuiz() {
     
 }
 
+// Might be complications from async so
+// TODO fully learn async
 async function startQuiz(interval, selections) {
     console.log("starting quiz");
     var a = "flashcard_a";
@@ -98,12 +100,10 @@ async function startQuiz(interval, selections) {
             await sleep(interval);
             if (CANCELLED) { break; }
             if (i % 2) {
-                console.log("is i divisible by 2? %d", i%2);
                 flashA.innerHTML = c;
                 flashA.style.opacity = "1";
                 flashB.style.opacity = "0";                
             } else {
-                console.log("is i divisible by 2? %d", i%2);
                 flashB.innerHTML = c;
                 flashB.style.opacity = "1";
                 flashA.style.opacity = "0";
@@ -113,7 +113,6 @@ async function startQuiz(interval, selections) {
             break;
         }
     }
-    console.log("ending quiz");
 }
 
 window.addEventListener("DOMContentLoaded", event => {
